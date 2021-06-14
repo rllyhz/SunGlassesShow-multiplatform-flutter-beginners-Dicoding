@@ -13,7 +13,6 @@ class _ItemCategoryListState extends State<ItemCategoryList> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(color: backgroundColor),
       height: 80,
       child: ListView.builder(
