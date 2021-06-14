@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:sunglasses_show/model/movie.dart';
-import 'package:sunglasses_show/model/tv_shows.dart';
+import 'package:sunglasses_show/utils/data_utils.dart';
 import '../../../constants.dart';
 import 'item_category_list.dart';
 
 class Body extends StatelessWidget {
   final PageController controller = PageController(initialPage: 0);
+  final movieList = getMovies();
+  final tvShowList = getTVShows();
 
   @override
   Widget build(BuildContext context) {
