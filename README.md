@@ -1,14 +1,14 @@
-# SunGlasses Show
+# SunGlasses Show 🚀🎬
 
 A multi-platform flutter project.
 This repository is the result of my submission project in Dicoding Academy class, **Learn Creating Flutter Application for Beginners**.
 
-## You can support on me:
+## You can support on me 🔥:
 
 > Just *star* or *fork* this repository and follow me on github, you have supported on me.
 
 
-## LICENSE
+## LICENSE ™
 
 ```
 Copyright © 2021 Rully Ihza Mahendra
