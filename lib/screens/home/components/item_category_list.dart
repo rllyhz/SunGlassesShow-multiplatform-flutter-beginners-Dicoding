@@ -17,6 +17,12 @@ class _ItemCategoryListState extends State<ItemCategoryList> {
 
   _ItemCategoryListState({required this.controller});
 
+  void setSelectedCategoryIndex(int newIndex) {
+    setState(() {
+      _selectedCategoryIndex = newIndex;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,7 +45,11 @@ class _ItemCategoryListState extends State<ItemCategoryList> {
             _selectedCategoryIndex = index;
           });
 
-          controller.jumpToPage(index);
+          controller.animateToPage(
+            index,
+            duration: Duration(milliseconds: 200),
+            curve: Curves.easeInOut,
+          );
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
