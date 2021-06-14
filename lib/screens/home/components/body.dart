@@ -14,7 +14,7 @@ class Body extends StatelessWidget {
             child: ItemCategoryList(),
           ),
           Expanded(
-            flex: 5,
+            flex: 6,
             child: LayoutBuilder(
                 builder: (BuildContext context, BoxConstraints contraints) {
               if (contraints.maxWidth < 600) {
