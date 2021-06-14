@@ -2,13 +2,20 @@ import 'package:flutter/material.dart';
 import '../../../constants.dart';
 
 class ItemCategoryList extends StatefulWidget {
+  final PageController controller;
+
+  ItemCategoryList(this.controller);
+
   @override
-  _ItemCategoryListState createState() => _ItemCategoryListState();
+  _ItemCategoryListState createState() =>
+      _ItemCategoryListState(controller: controller);
 }
 
 class _ItemCategoryListState extends State<ItemCategoryList> {
+  final PageController controller;
   int _selectedCategoryIndex = 0;
-  List<String> _itemCategories = ["Movies", "Tv Shows"];
+
+  _ItemCategoryListState({required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +23,7 @@ class _ItemCategoryListState extends State<ItemCategoryList> {
       decoration: BoxDecoration(color: backgroundColor),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: _itemCategories.length,
+        itemCount: itemCategories.length,
         itemBuilder: (context, index) => buildItemCatogories(context, index),
       ),
     );
@@ -31,13 +38,15 @@ class _ItemCategoryListState extends State<ItemCategoryList> {
           setState(() {
             _selectedCategoryIndex = index;
           });
+
+          controller.jumpToPage(index);
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              _itemCategories[index],
+              itemCategories[index],
               style: Theme.of(context).textTheme.headline6!.copyWith(
                   fontWeight: FontWeight.w600,
                   color: index == _selectedCategoryIndex
