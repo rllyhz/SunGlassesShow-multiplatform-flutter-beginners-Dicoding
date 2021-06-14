@@ -1,8 +1,26 @@
 class Movie {
   String title;
   String posterUrl;
-  num rating;
   int year;
+  String genres;
+  String duration;
+  String rate;
+  num rating;
+  String releasedAt;
+  String language;
+  String synopsis;
+  String director;
 
-  Movie(this.title, this.posterUrl, this.year, this.rating);
+  Movie(
+      this.title,
+      this.posterUrl,
+      this.year,
+      this.genres,
+      this.duration,
+      this.rate,
+      this.rating,
+      this.releasedAt,
+      this.language,
+      this.synopsis,
+      this.director);
 }
