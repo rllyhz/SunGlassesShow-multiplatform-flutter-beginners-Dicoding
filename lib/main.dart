@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sunglasses_show/screens/home/home_screen.dart';
-
 import 'constants.dart';
 
 void main() => runApp(MyApp());
@@ -12,6 +11,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: appName,
       theme: ThemeData(
+        fontFamily: 'Manrope',
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: HomeScreen(),
