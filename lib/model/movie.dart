@@ -5,7 +5,7 @@ class Movie {
   String genres;
   String duration;
   String rate;
-  num rating;
+  double rating;
   String releasedAt;
   String language;
   String synopsis;
