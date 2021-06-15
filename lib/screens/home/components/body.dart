@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:sunglasses_show/screens/detail/detail_screen.dart';
 import 'package:sunglasses_show/utils/data_utils.dart';
 import 'package:sunglasses_show/utils/widget_utils.dart';
 import '../../../constants.dart';
@@ -101,9 +102,22 @@ class Body extends StatelessWidget {
         final containerTitleWidth =
             getResponsiveLongDimension(ctx, 100.0, 240.0);
 
-        return buildCardItem(containerTitleWidth, radiusSize, fontSize,
-            movie.title, movie.rating, movie.posterUrl, () {
-          print('you clicked: ' + movie.title);
+        return buildCardItem(
+            containerTitleWidth,
+            radiusSize,
+            fontSize,
+            "${movie.title} (${movie.year})",
+            movie.rating,
+            movie.posterUrl, () {
+          Navigator.push(
+            ctx,
+            MaterialPageRoute(
+              builder: (ctx) => DetailScreen(
+                isContentForMovies: true,
+                movie: movie,
+              ),
+            ),
+          );
         });
       }).toList();
 
@@ -113,9 +127,22 @@ class Body extends StatelessWidget {
         final containerTitleWidth =
             getResponsiveLongDimension(ctx, 100.0, 240.0);
 
-        return buildCardItem(containerTitleWidth, radiusSize, fontSize,
-            tvShow.title, tvShow.rating, tvShow.posterUrl, () {
-          print('you clicked: ' + tvShow.title);
+        return buildCardItem(
+            containerTitleWidth,
+            radiusSize,
+            fontSize,
+            "${tvShow.title} (${tvShow.year})",
+            tvShow.rating,
+            tvShow.posterUrl, () {
+          Navigator.push(
+            ctx,
+            MaterialPageRoute(
+              builder: (ctx) => DetailScreen(
+                isContentForMovies: false,
+                tvShow: tvShow,
+              ),
+            ),
+          );
         });
       }).toList();
 
@@ -169,7 +196,7 @@ class Body extends StatelessWidget {
                         width: containerTitleWidth,
                         child: Text(
                           title,
-                          style: buildTextStyle(fontSize),
+                          style: buildTextStyleNormal(fontSize, Colors.white),
                           overflow: TextOverflow.fade,
                         ),
                       ),
@@ -177,7 +204,7 @@ class Body extends StatelessWidget {
                         height: 6.0,
                       ),
                       RatingBar.builder(
-                        initialRating: rating,
+                        initialRating: rating - 3.6,
                         itemCount: 5,
                         allowHalfRating: true,
                         minRating: 1,

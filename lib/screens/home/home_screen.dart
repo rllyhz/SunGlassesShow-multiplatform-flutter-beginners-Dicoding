@@ -33,21 +33,14 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Text(
                   appName,
-                  style: TextStyle(
-                    fontFamily: 'Manrope',
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white,
-                    fontSize: 18.0,
-                  ),
+                  style: buildTextStyleBold(18.0, Colors.white),
                 ),
                 SizedBox(height: 4),
                 Text(
                   emailDescription,
-                  style: TextStyle(
-                    fontFamily: 'Manrope',
-                    fontWeight: FontWeight.w300,
-                    color: Color.fromARGB(0x88, 0xFF, 0xFF, 0xFF),
-                    fontSize: 12.0,
+                  style: buildTextStyleLight(
+                    12.0,
+                    Color.fromARGB(0x88, 0xFF, 0xFF, 0xFF),
                   ),
                 ),
               ],
@@ -55,27 +48,23 @@ class HomeScreen extends StatelessWidget {
           ),
           ListTile(
             title: Text(
-              'Settings',
-              style: TextStyle(
-                color: Colors.black,
-                fontFamily: "Manrope",
-              ),
+              drawerMenuItems[0],
+              style: buildTextStyleNormal(12.0, Colors.black87),
             ),
             onTap: () {
-              _showSnackbar(context, 'Settings');
+              _showSnackbar(
+                  context, "'${drawerMenuItems[0]}' not implemented yet!");
               Navigator.pop(context);
             },
           ),
           ListTile(
             title: Text(
-              'About Us',
-              style: TextStyle(
-                color: Colors.black,
-                fontFamily: "Manrope",
-              ),
+              drawerMenuItems[1],
+              style: buildTextStyleNormal(12.0, Colors.black87),
             ),
             onTap: () {
-              _showSnackbar(context, 'About us');
+              _showSnackbar(
+                  context, "'${drawerMenuItems[1]}' not implemented yet!");
               Navigator.pop(context);
             },
           ),
