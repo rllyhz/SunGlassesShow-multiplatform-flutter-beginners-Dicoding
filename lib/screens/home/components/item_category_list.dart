@@ -38,8 +38,8 @@ class _ItemCategoryListState extends State<ItemCategoryList> {
   Padding buildItemCatogories(BuildContext context, int index) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-          horizontal: paddingMd, vertical: paddingSm),
-      child: GestureDetector(
+          horizontal: edgeInsetsMd, vertical: edgeInsetsSm),
+      child: InkWell(
         onTap: () {
           setState(() {
             _selectedCategoryIndex = index;
@@ -64,7 +64,7 @@ class _ItemCategoryListState extends State<ItemCategoryList> {
                       : textColorInActive),
             ),
             Container(
-              margin: EdgeInsets.only(top: paddingSm - 3.0),
+              margin: EdgeInsets.only(top: edgeInsetsSm - 3.0),
               height: 6,
               width: 40,
               decoration: BoxDecoration(
