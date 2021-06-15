@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const appName = 'SunGlasses Show';
 const emailDescription = 'rullyihza00@gmail.com';
+final drawerMenuItems = ['Settings', 'About Us'];
 
 const secondaryColor = Color(0xFFFE6D8E);
 const backgroundColor = Color(0xFFF8F8F8F8);
