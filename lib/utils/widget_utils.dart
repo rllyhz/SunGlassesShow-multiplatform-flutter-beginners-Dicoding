@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
-TextStyle buildTextStyle(double fontSize,
-        {FontWeight fontWeight = FontWeight.w500,
-        Color color = Colors.white}) =>
-    TextStyle(
-      fontSize: fontSize,
-      fontFamily: "Manrope",
-      color: color,
-      fontWeight: FontWeight.w700,
-    );
+TextStyle buildTextStyleLight(double fontSize, Color color) =>
+    TextStyle(fontSize: fontSize, fontWeight: FontWeight.w300, color: color);
+
+TextStyle buildTextStyleNormal(double fontSize, Color color) =>
+    TextStyle(fontSize: fontSize, fontWeight: FontWeight.w400, color: color);
+
+TextStyle buildTextStyleMedium(double fontSize, Color color) =>
+    TextStyle(fontSize: fontSize, fontWeight: FontWeight.w500, color: color);
+
+TextStyle buildTextStyleBold(double fontSize, Color color) =>
+    TextStyle(fontSize: fontSize, fontWeight: FontWeight.w700, color: color);
 
 double getResponsiveDimension(BuildContext ctx, double initialValue) {
   final width = MediaQuery.of(ctx).size.width;
