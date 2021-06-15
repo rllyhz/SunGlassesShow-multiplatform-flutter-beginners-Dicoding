@@ -15,11 +15,11 @@ const itemRadiusXl = 12.0;
 const menuIconPath = 'assets/icons/menu.svg';
 const searchIconPath = 'assets/icons/search.svg';
 
-const paddingSm = 12.0;
-const paddingMd = 20.0;
-const paddingXl = 24.0;
+const edgeInsetsSm = 12.0;
+const edgeInsetsMd = 20.0;
+const edgeInsetsXl = 24.0;
 
-// const titleTextSize = 24.0;
-// const bodyTextSize = 20.0;
-// const captionTextSize = 16.0;
+// const titleTextSize = 20.0;
+// const bodyTextSize = 18.0;
+// const captionTextSize = 14.0;
 // const defaultTextSize = 12.0;
