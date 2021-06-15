@@ -14,7 +14,6 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: edgeInsetsMd),
         child: Column(
           children: [
             Expanded(
@@ -22,7 +21,7 @@ class Body extends StatelessWidget {
               child: ItemCategoryList(controller),
             ),
             Expanded(
-              flex: 6,
+              flex: 7,
               child: PageView(
                 scrollDirection: Axis.horizontal,
                 controller: controller,
@@ -31,8 +30,16 @@ class Body extends StatelessWidget {
                 },
                 physics: BouncingScrollPhysics(),
                 children: <Widget>[
-                  buildMoviesLayout(),
-                  buildTVShowsLayout(),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: edgeInsetsSm),
+                    child: buildMoviesLayout(),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: edgeInsetsSm),
+                    child: buildTVShowsLayout(),
+                  ),
                 ],
               ),
             ),
@@ -162,7 +169,7 @@ class Body extends StatelessWidget {
                         width: containerTitleWidth,
                         child: Text(
                           title,
-                          style: getResponsiveTextStyle(fontSize),
+                          style: buildTextStyle(fontSize),
                           overflow: TextOverflow.fade,
                         ),
                       ),
