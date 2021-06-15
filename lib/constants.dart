@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
+const appName = 'SunGlasses Show';
+const emailDescription = 'rullyihza00@gmail.com';
+
 const secondaryColor = Color(0xFFFE6D8E);
 const backgroundColor = Color(0xFFF8F8F8F8);
 
-const textColorActive = Color(0xFF12153D);
+const textColorActive = Color.fromARGB(0xDD, 0x00, 0x00, 0x00);
 const textColorInActive = Color.fromARGB(0x72, 0x00, 0x00, 0x00);
 
 const itemCategories = ['Movies', 'Tv Shows'];
