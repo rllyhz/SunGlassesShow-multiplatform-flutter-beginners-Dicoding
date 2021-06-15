@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
-TextStyle getResponsiveTextStyle(fontSize) => TextStyle(
+TextStyle buildTextStyle(double fontSize,
+        {FontWeight fontWeight = FontWeight.w500,
+        Color color = Colors.white}) =>
+    TextStyle(
       fontSize: fontSize,
-      color: Colors.white,
-      fontWeight: FontWeight.bold,
+      fontFamily: "Manrope",
+      color: color,
+      fontWeight: FontWeight.w700,
     );
 
 double getResponsiveDimension(BuildContext ctx, double initialValue) {
