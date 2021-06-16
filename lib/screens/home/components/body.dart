@@ -6,10 +6,16 @@ import 'package:sunglasses_show/utils/widget_utils.dart';
 import '../../../constants.dart';
 import 'item_category_list.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
+  @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
   final PageController controller = PageController(initialPage: 0);
-  final movieList = getMovies();
-  final tvShowList = getTVShows();
+  var movieList = getMovies();
+  var tvShowList = getTVShows();
+  int seletedTabIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +25,17 @@ class Body extends StatelessWidget {
           children: [
             Expanded(
               flex: 1,
-              child: ItemCategoryList(controller),
+              child: ItemCategoryList(seletedTabIndex, (index) {
+                setState(() {
+                  seletedTabIndex = index;
+                });
+
+                controller.animateToPage(
+                  index,
+                  duration: Duration(milliseconds: 200),
+                  curve: Curves.easeInOut,
+                );
+              }),
             ),
             Expanded(
               flex: 7,
@@ -27,7 +43,9 @@ class Body extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 controller: controller,
                 onPageChanged: (selectedIndex) {
-                  //
+                  setState(() {
+                    seletedTabIndex = selectedIndex;
+                  });
                 },
                 physics: BouncingScrollPhysics(),
                 children: <Widget>[

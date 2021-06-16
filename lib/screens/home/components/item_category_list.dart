@@ -2,27 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:sunglasses_show/utils/widget_utils.dart';
 import '../../../constants.dart';
 
-class ItemCategoryList extends StatefulWidget {
-  final PageController controller;
+class ItemCategoryList extends StatelessWidget {
+  final int selectedTabIndex;
+  final Function onTapItemCard;
 
-  ItemCategoryList(this.controller);
-
-  @override
-  _ItemCategoryListState createState() =>
-      _ItemCategoryListState(controller: controller);
-}
-
-class _ItemCategoryListState extends State<ItemCategoryList> {
-  final PageController controller;
-  int _selectedCategoryIndex = 0;
-
-  _ItemCategoryListState({required this.controller});
-
-  void setSelectedCategoryIndex(int newIndex) {
-    setState(() {
-      _selectedCategoryIndex = newIndex;
-    });
-  }
+  ItemCategoryList(this.selectedTabIndex, this.onTapItemCard);
 
   @override
   Widget build(BuildContext context) {
@@ -46,17 +30,7 @@ class _ItemCategoryListState extends State<ItemCategoryList> {
       padding: const EdgeInsets.symmetric(
           horizontal: edgeInsetsMd, vertical: edgeInsetsSm),
       child: InkWell(
-        onTap: () {
-          setState(() {
-            _selectedCategoryIndex = index;
-          });
-
-          controller.animateToPage(
-            index,
-            duration: Duration(milliseconds: 200),
-            curve: Curves.easeInOut,
-          );
-        },
+        onTap: () => onTapItemCard(index),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -66,7 +40,7 @@ class _ItemCategoryListState extends State<ItemCategoryList> {
                   fontFamily: "Manrope",
                   fontWeight: FontWeight.w500,
                   fontSize: fontSize,
-                  color: index == _selectedCategoryIndex
+                  color: index == selectedTabIndex
                       ? textColorActive
                       : textColorInActive),
             ),
@@ -76,7 +50,7 @@ class _ItemCategoryListState extends State<ItemCategoryList> {
               width: (fontSize * 2),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.0),
-                color: index == _selectedCategoryIndex
+                color: index == selectedTabIndex
                     ? secondaryColor
                     : Colors.transparent,
               ),
