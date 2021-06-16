@@ -44,7 +44,7 @@ class Body extends StatelessWidget {
       children: <Widget>[
         Expanded(
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(8.0),
+            borderRadius: BorderRadius.circular(itemRadiusSm),
             child: Image.asset(
               posterUrl,
               fit: BoxFit.cover,
