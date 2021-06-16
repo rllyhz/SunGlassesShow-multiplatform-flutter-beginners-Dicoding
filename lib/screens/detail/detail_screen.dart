@@ -63,12 +63,6 @@ class DetailScreen extends StatelessWidget {
                   DecoratedBox(
                     decoration: buildOverlayBackground(),
                   ),
-                  Positioned(
-                    top: 0.0,
-                    left: 0.0,
-                    width: screenWidth,
-                    child: buildAppBar(context),
-                  ),
                 ],
               ),
             ),
@@ -111,23 +105,6 @@ class DetailScreen extends StatelessWidget {
           Color(0xEE000000),
           Color(0x88000000),
         ],
-      ),
-    );
-  }
-
-  AppBar buildAppBar(BuildContext context) {
-    return AppBar(
-      primary: false,
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      leading: IconButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        icon: Icon(
-          Icons.arrow_back_rounded,
-          color: Colors.white,
-        ),
       ),
     );
   }

@@ -34,27 +34,46 @@ class Body extends StatelessWidget {
       this.isContentForMovies})
       : super(key: key);
 
+  Widget showImage(context) {
+    var screenWidth = MediaQuery.of(context).size.width;
+
+    if (screenWidth > 900) {
+      return Expanded(
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(itemRadiusSm),
+          child: Image.asset(
+            posterUrl,
+            fit: BoxFit.cover,
+          ),
+        ),
+      );
+    } else {
+      return Container();
+    }
+  }
+
+  double getCardMargin(BuildContext context) {
+    var screenWidth = MediaQuery.of(context).size.width;
+
+    if (screenWidth > 900) {
+      return edgeInsetsSm;
+    } else {
+      return 0;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Expanded(
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(itemRadiusSm),
-            child: Image.asset(
-              posterUrl,
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
+        showImage(context),
         Expanded(
           flex: 2,
           child: Card(
-            margin: EdgeInsets.only(left: edgeInsetsSm),
+            margin: EdgeInsets.only(left: getCardMargin(context)),
             child: Padding(
               padding: const EdgeInsets.all(edgeInsetsSm),
               child: Column(
@@ -168,6 +187,7 @@ class Body extends StatelessWidget {
         SizedBox(width: 8.0),
         Text(
           info,
+          overflow: TextOverflow.ellipsis,
           style: buildTextStyleLight(
             getDescriptionInfoTextSize(screenWidth),
             Colors.black,

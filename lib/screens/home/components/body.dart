@@ -32,7 +32,7 @@ class _BodyState extends State<Body> {
 
                 controller.animateToPage(
                   index,
-                  duration: Duration(milliseconds: 200),
+                  duration: Duration(milliseconds: 350),
                   curve: Curves.easeInOut,
                 );
               }),
